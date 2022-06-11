@@ -1,0 +1,7 @@
+#include "transparant"
+
+transparant::transparant(QWidget *parent)
+    : QWidget{parent}
+{
+
+}
