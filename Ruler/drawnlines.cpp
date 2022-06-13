@@ -7,7 +7,7 @@ DrawnLines::DrawnLines()
 
 DrawnLines::~DrawnLines()
 {
-    delete
+    delete;
 }
 
 void DrawnLines::addLine(Line* line)
