@@ -1,5 +1,6 @@
 #include "drawnlines.h"
 
+
 DrawnLines::DrawnLines()
 {
 
@@ -7,7 +8,7 @@ DrawnLines::DrawnLines()
 
 DrawnLines::~DrawnLines()
 {
-    delete;
+
 }
 
 void DrawnLines::addLine(Line* line)
