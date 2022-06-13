@@ -52,9 +52,13 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Ruler/main.cpp \
+SOURCES       = ../Ruler/drawnlines.cpp \
+		../Ruler/line.cpp \
+		../Ruler/main.cpp \
 		../Ruler/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = drawnlines.o \
+		line.o \
+		main.o \
 		mainwindow.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -78,6 +82,9 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_egl_support_private.pri \
@@ -89,9 +96,16 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_glx_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_gui_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_help.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_help_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimedia.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_opengl.pri \
@@ -101,6 +115,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_sql_private.pri \
@@ -109,7 +124,12 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -143,7 +163,11 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		../Ruler/Ruler.pro ../Ruler/mainwindow.h ../Ruler/main.cpp \
+		../Ruler/Ruler.pro ../Ruler/drawnlines.h \
+		../Ruler/line.h \
+		../Ruler/mainwindow.h ../Ruler/drawnlines.cpp \
+		../Ruler/line.cpp \
+		../Ruler/main.cpp \
 		../Ruler/mainwindow.cpp
 QMAKE_TARGET  = Ruler
 DESTDIR       = 
@@ -177,6 +201,9 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 		/usr/lib/qt/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_egl_support_private.pri \
@@ -188,9 +215,16 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 		/usr/lib/qt/mkspecs/modules/qt_lib_glx_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_gui_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_help.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_help_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimedia.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_opengl.pri \
@@ -200,6 +234,7 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 		/usr/lib/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_sql_private.pri \
@@ -208,7 +243,12 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 		/usr/lib/qt/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -265,6 +305,9 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 /usr/lib/qt/mkspecs/modules/qt_lib_core_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_dbus.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_dbus_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_designer.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_designer_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_designercomponents_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_edid_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_egl_support_private.pri:
@@ -276,9 +319,16 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 /usr/lib/qt/mkspecs/modules/qt_lib_glx_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_gui.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_gui_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_help.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_help_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_input_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_kms_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_multimedia.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_multimedia_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_multimediagsttools_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_network.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_network_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_opengl.pri:
@@ -288,6 +338,7 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 /usr/lib/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_service_support_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_sql_private.pri:
@@ -296,7 +347,12 @@ Makefile: ../Ruler/Ruler.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/q
 /usr/lib/qt/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_theme_support_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_uiplugin.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_uitools.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_uitools_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_vulkan_support_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -346,8 +402,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Ruler/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Ruler/main.cpp ../Ruler/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Ruler/drawnlines.h ../Ruler/line.h ../Ruler/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Ruler/drawnlines.cpp ../Ruler/line.cpp ../Ruler/main.cpp ../Ruler/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Ruler/mainwindow.ui $(DISTDIR)/
 
 
@@ -408,6 +464,13 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+drawnlines.o: ../Ruler/drawnlines.cpp ../Ruler/drawnlines.h \
+		../Ruler/line.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o drawnlines.o ../Ruler/drawnlines.cpp
+
+line.o: ../Ruler/line.cpp ../Ruler/line.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o line.o ../Ruler/line.cpp
 
 main.o: ../Ruler/main.cpp ../Ruler/mainwindow.h \
 		../Ruler/transparentbackground.h

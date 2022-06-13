@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "drawnlines.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +16,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void initiateDrawnLinesObject(DrawnLines *d);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+
+
 private:
     Ui::MainWindow *ui;
+    DrawnLines *drawnLines;
 };
 #endif // MAINWINDOW_H
